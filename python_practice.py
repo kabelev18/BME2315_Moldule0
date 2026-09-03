@@ -3,7 +3,7 @@
 # I encourage you to try the problems yourself first and only use AI tools when you are stuck to benefit your learning. 
 
 # Name: Katia Abelev
-# AI Contribution:
+# AI Contribution: ChatGPT was used to troubleshoot and fix errors in my pseudocode and code in each problem.
 
 # %% ###########################################################
 # Problem 1: Practice writing pseudocode
@@ -13,7 +13,18 @@
 # Example: If N = 5, the output should be 0 + 1 + 1 + 2 + 3 = 7
 
 """ # you can use three double-quotes to write multi-line comments
-XXX Write your pseudocode here XXX
+Input integer N
+Set sum = 0
+Set first = 0
+Set second = 1
+
+Repeat N times:
+    Add first to sum
+    Set next = first + second
+    Set first = second
+    Set second = next
+
+Output sum
 """
 
 # %% ###########################################################
@@ -27,24 +38,47 @@ count = 0
 total = 0
 
 while count < N:
-    total = total + b
+    total = total + a # total = total + a, need to start with adding a first
 
-    next_value = a + b
-    a = b
-    b = next_value
+    next_value = a + b #calculates the next fibonacci number
+    a = b # set a to the value of b, b becomes the new a
+    b = next_value #next fibonacci number becomes the new b
 
-    count = count + 1
+    count = count + 1 #increases the count by 1 to keep track of how many fibonacci numbers have been added
 
-print(total)
+print(total) #prints the total sum of the first N fibonacci numbers
 
 # %% ###########################################################
 # Problem 3: Using common Python libraries
 # What is the standard deviation of the first 10 numbers in the fibonacci sequence? Use the numpy library to calculate the standard deviation.
 
+import numpy as np
+
+fib_first10 = [0,1,1,2,3,5,8,13,21,34]
+standard_deviation = np.std(fib_first10)
+print(standard_deviation)
+
 # %% ###########################################################
 # Problem 4: Don't repeat yourself by writing functions
 # Write a function that takes an integer N as input and returns the sum of the first N numbers in the fibonacci sequence.
 # Then use this function to calculate the sums for N = 5, 10, 15, 20, 25, and 30 and print them as a list.
+
+def sum_fib(N):
+    a = 0
+    b = 1
+    total = 0
+    for i in range(N):
+        total += a
+        next_value = a + b
+        a = b
+        b = next_value
+    return total
+
+all_sums = []
+for N in [5,10,15,20,25,30]:
+    all_sums.append(sum_fib(N))
+
+print(all_sums)
 
 # %% ###########################################################
 # Problem 5: Read your error messages
