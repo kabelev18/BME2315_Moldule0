@@ -97,15 +97,15 @@ def find_fib_above_limit(limit):
     :return: index of the first number above limit
     :rtype: integer
     """
-    a = "0"
-    b = "1"
+    a = 0 #These (a and b) need to be integers not strings
+    b = 1
+    index = 0 #added to initialize "index" variable
 
-    while a <= limit:
+    while a <= limit: #TypeError: '<=' not supported between instances of 'str' and 'int', the variables a and b should be integers not strings
         next_value = a + b
         a = b
         b = next_value
-        index += 1
-
+        index += 1 #UnboundLocalError: can't access local variable "index" where it is not associated with a value, need to initialize index prior to while loop in order to use it
     return index
 
 
