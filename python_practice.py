@@ -3,7 +3,7 @@
 # I encourage you to try the problems yourself first and only use AI tools when you are stuck to benefit your learning. 
 
 # Name: Katia Abelev
-# AI Contribution: ChatGPT was used to troubleshoot and fix errors in my pseudocode and code in each problem.
+# AI Contribution: ChatGPT was used to troubleshoot and fix errors in my pseudocode and regular code in each problem.
 
 # %% ###########################################################
 # Problem 1: Practice writing pseudocode
@@ -116,16 +116,19 @@ print("The index of the first number above your limit is: ", result)
 # The following function will run but will output the wrong answer sometimes. Add test cases to verify that the function works correctly for a variety of inputs. If you find any inputs that produce incorrect outputs, fix the function. The function, when working properly, should return the sum of all odd Fibonacci numbers less than or equal to the input "limit".
 
 
-def sum_even_fib(limit):
+def sum_odd_fib(limit): #starts out giving even numbers instead of odd, changed this to odd
     a, b = 0, 1
     total = 0
     while b <= limit:
-        if b % 2 == 0:  # This line checks if the Fibonacci number is even
-            total = b
+        if b % 2 == 1:#This line checked if the Fibonacci number is even, changed it to check for odd
+            total += b #This used to just change the number to the input, changed it to add it to the total
         a, b = b, a + b
     return total
 
-
-# Add your test cases here
-
+# test cases
+print(sum_odd_fib(10))
+print(sum_odd_fib(6))
+print(sum_odd_fib(20))
+print(sum_odd_fib(45))
+print(sum_odd_fib(100))
 # %%
